@@ -12,7 +12,7 @@
             }
             .cubeInput{
                 margin-left: 20px;
-                margin-top: 40px;
+                margin-top: 20px;
                 width: 1000px;
                 height: 300px;
             }
@@ -25,7 +25,7 @@
                 display: none;
             }
             p.message{
-                color: red;
+                color: rgb(255, 69, 69);
             }
             table.size1{
                 height: 210px;
@@ -40,7 +40,7 @@
             }
         </style>
         <script>
-            var ansMoves=5;
+            var ansMoves;
             var ans,arr;
             function checkInput(){
                 var a= document.getElementById('cubeInput').value;
@@ -54,7 +54,7 @@
                     if(a[i]=='r')
                     {
                         red+=1;
-                        document.getElementById(i).style.backgroundColor="red";
+                        document.getElementById(i).style.backgroundColor="rgb(255, 69, 69)";
                         if(red>3){
                             error=1;
                             document.getElementById("InputMsg").style.display="block";
@@ -64,7 +64,7 @@
                     else if(a[i]=='g')
                     {
                         green+=1;
-                        document.getElementById(i).style.backgroundColor="green";
+                        document.getElementById(i).style.backgroundColor="rgb(69, 255, 69)";
                         if(green>3){
                             error=1;
                             document.getElementById("InputMsg").style.display="block";
@@ -75,7 +75,7 @@
                     {
                         
                         blue+=1;
-                        document.getElementById(i).style.backgroundColor="blue";
+                        document.getElementById(i).style.backgroundColor="rgb(69, 69, 255)";
                         if(blue>3){
                             error=1;
                             document.getElementById("InputMsg").style.display="block";
@@ -86,7 +86,8 @@
                         document.getElementById(i).style.backgroundColor='white';
                         error=1;
                         document.getElementById("InputMsg").style.display="block";
-                        document.getElementById("message").innerText="Input should contains only r g b";                        document.getElementById("message").innerText="Input should contains only r g b";
+                        document.getElementById("message").innerText="Input should contains only r g b";
+                        document.getElementById("message").innerText="Input should contains only r g b";
                     }
                 }
                 if(n==9 && error==0){
@@ -102,7 +103,7 @@
             }
             function execution(){
                 arr=document.getElementById('cubeInput').value;
-                document.getElementById('cubeInput').readOnly=true;
+                ansMoves=5;
                 calc(arr,"",0);
                 var i=0;
                 var s=ans.length/9;
@@ -115,11 +116,11 @@
                         index='o'+index;
                         var c=ans[i*9+j];
                         if(c=='r')
-                            document.getElementById(index).style.backgroundColor='red';
+                            document.getElementById(index).style.backgroundColor='rgb(255, 69, 69)';
                         if(c=='g')
-                            document.getElementById(index).style.backgroundColor='green';
+                            document.getElementById(index).style.backgroundColor='rgb(69, 255, 69)';
                         if(c=='b')
-                            document.getElementById(index).style.backgroundColor='blue';
+                            document.getElementById(index).style.backgroundColor='rgb(69, 69, 255)';
 
                     }
                 }
@@ -127,8 +128,7 @@
                 {
                     document.getElementById("output"+i).style.display="none";
                 }
-            }
-
+            } 
             function calc(arr, res, nMove) {
                 if (arr[0] === arr[1] && arr[1] === arr[2] && arr[3] === arr[4] && arr[4] === arr[5] && arr[6] === arr[7] && arr[7] === arr[8] && nMove < ansMoves) {
                     ansMoves=nMove;
@@ -159,11 +159,35 @@
     </head>
     <body>
         <div class="topRow">
-            <button class="firstMenu" onclick="contact()"> Contact</button>
+            <div style="float: left; padding-left: 20px; "> 2 D Cube Solver</div>
+            <div style="float: left; padding-left: 250px;">
+            <button class="firstMenu"  onclick="contact()"> Contact</button>
+            </div>
         </div>
         <div class="cubeInput" >
+            <p style="font-size: 14px; color: rgb(255, 94, 0);">
+                The "Flat Rubik’s Puzzle" consists of nine coloured tiles arranged in three rows and three columns. There are three tiles each of the three colours red, green, and blue.
+
+The puzzle has twelve legal moves:
+
+<br>
+(a) Any column may be shifted one position up or down with a wrap-around taking place.
+<br>
+(b) Any row may be shifted left or right in one position with a wrap-around taking place.
+<br>
+To complete the puzzle, the colours must be positioned such that all cells of a row are of the same colour.
+<br>
+Inter the starting state of Cube :
+Use r for Red
+Use g for Green
+Use b fro Blue
+eg: rgbrgbrgb
+
+Press submit and we will the display the minimum steps required for solving this puzzle. See if you were able to solve within those minimum moves.
+
+            </p>
             <div style="float: left;">
-                <div ><p>
+                <div><p>
                     Enter Your Cube here</p>
                     </p>
                 </div>
@@ -217,7 +241,7 @@
                         <td id="o8"></td>
                     </tr>
                 </table>
-                <p>Iteration 0</p>
+                <p>Input/Step 0</p>
             </div>
             <div id="output1" style="margin-right: 60px;float: left;display: none;">
                 <table class="size" border="1p" >
@@ -237,7 +261,7 @@
                         <td id="o18"></td>
                     </tr>
                 </table>
-                <p>Iteration 1</p>
+                <p>Step 1</p>
             </div>
             <div id="output2" style="float:left; padding-right: 60px;display: none;">
                 <table class="size" border="1p" >
@@ -257,7 +281,7 @@
                         <td id="o28"></td>
                     </tr>
                 </table>
-                <p>Iteration 3</p>
+                <p>Step 2</p>
             </div>
             <div id="output3" style="padding-right: 60px;float: left;display: none;">
                 <table class="size" border="1p">
@@ -277,7 +301,7 @@
                         <td id="o38"></td>
                     </tr>
                 </table>
-                <p>Iteration 4</p>
+                <p>Step 3</p>
             </div>
             <div id="output4" style="float: left;display: none;">
                 <table class="size" border="1p">
@@ -297,8 +321,12 @@
                         <td id="o48"></td>
                     </tr>
                 </table>
-                <p>Iteration 5</p>
+                <p>Step 4</p>
             </div>
         </div>
+    <div style="clear: left;position: absolute; bottom: 1px;">
+        <p style="padding-left: 10px; font-size:12px">There maybe multiple ways to solve the puzzle within minimum steps. You are still a winner if you solved it within minimum moves but steps were different.</p>
+
+    </div>
     </body>
 </html>
