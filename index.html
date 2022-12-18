@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Cube Solver</title>
+        <title>2D Cube Puzzle</title>
         <style>
             div.topRow{
                 margin-left: 5px;
@@ -25,7 +25,7 @@
                 display: none;
             }
             p.message{
-                color: rgb(255, 69, 69);
+                color: red;
             }
             table.size1{
                 height: 210px;
@@ -86,8 +86,7 @@
                         document.getElementById(i).style.backgroundColor='white';
                         error=1;
                         document.getElementById("InputMsg").style.display="block";
-                        document.getElementById("message").innerText="Input should contains only r g b";
-                        document.getElementById("message").innerText="Input should contains only r g b";
+                        document.getElementById("message").innerText="Kindly Input only 'r' 'g' or 'b'";
                     }
                 }
                 if(n==9 && error==0){
@@ -153,50 +152,54 @@
             }
 
             function contact(){
-                window.open("mailto:robinrk626@gmail.com;dipeshbindlish@gmail.com")
+                window.open("mailto:dipeshbindlish@gmail.com;robinrk626@gmail.com")
             }
         </script>
     </head>
     <body>
+        <div>
         <div class="topRow">
-            <div style="float: left; padding-left: 20px; "> 2 D Cube Solver</div>
-            <div style="float: left; padding-left: 250px;">
-            <button class="firstMenu"  onclick="contact()"> Contact</button>
+            <div style="float: left; padding-left: 600px; "> 2D Tricoloured Cube Puzzle</div>
+            <div style="float: left; padding-left: 400px;">
+            <button class="firstMenu"  onclick="contact()"> Contact Us</button>
             </div>
         </div>
         <div class="cubeInput" >
-            <p style="font-size: 14px; color: rgb(255, 94, 0);">
-                The "Flat Rubik’s Puzzle" consists of nine coloured tiles arranged in three rows and three columns. There are three tiles each of the three colours red, green, and blue.
-
-The puzzle has twelve legal moves:
-
-<br>
-(a) Any column may be shifted one position up or down with a wrap-around taking place.
-<br>
-(b) Any row may be shifted left or right in one position with a wrap-around taking place.
-<br>
-To complete the puzzle, the colours must be positioned such that all cells of a row are of the same colour.
-<br>
-Inter the starting state of Cube :
-Use r for Red
-Use g for Green
-Use b fro Blue
-eg: rgbrgbrgb
-
-Press submit and we will the display the minimum steps required for solving this puzzle. See if you were able to solve within those minimum moves.
-
+            <p style="font-size: 16.9px; color: rgba(18, 6, 70);">
+                <b>The "Flat Rubik’s Puzzle" consists of nine coloured tiles arranged in three rows and three columns.
+                <br>
+                There are three tiles each of the three colours red, green, and blue.
+                <br>
+                <br>
+                The puzzle has twelve legal moves:
+                <br>
+                (a) Any column may be shifted one position up or down with a wrap-around taking place.
+                <br>
+                (b) Any row may be shifted left or right in one position with a wrap-around taking place.
+                <br>
+                To complete the puzzle, the colours must be positioned such that all cells of a row are of the same colour.
+                </b>
             </p>
             <div style="float: left;">
-                <div><p>
-                    Enter Your Cube here</p>
+                <div><p style="font-size: 16.9px;";>
+                Inter the starting state of Cube :
+                <br>Use 'r' for Red
+                <br>Use 'g' for Green
+                <br>Use 'b' fro Blue
+                <br>eg: rgbrgbrgb
+
+                <br>Press solve and we will the display the minimum steps required for solving this puzzle.
+                <br>Let's find out if you were able to solve within those minimum moves.</p>
                     </p>
                 </div>
+                <div style="float: left">
                 <input type="text" id="cubeInput" maxlength="9" onkeyup="checkInput()" placeholder="Enter Only r g b without any space" style="width: 500px;" >
-                <div id="InputMsg" class="inputmessgae">
-                    <p id="message" class="message" >kkkk</p>
                 </div>
-                <div style="height: 50px;">
-                    <button id="execute" onclick="execution()" style="margin-top:40px; height:20px;width:70px;margin-left:50px" disabled="true">Solve</button>
+                <div style="height: 50px;float: left">
+                    <button id="execute" onclick="execution()" style="height:20px;width:70px;margin-left:20px" disabled="true">Solve</button>
+                </div>
+                <div id="InputMsg" class="inputmessgae">
+                    <p id="message" class="message" ></p>
                 </div>
             </div>
             <div class="showCube">
@@ -324,9 +327,20 @@ Press submit and we will the display the minimum steps required for solving this
                 <p>Step 4</p>
             </div>
         </div>
-    <div style="clear: left;position: absolute; bottom: 1px;">
-        <p style="padding-left: 10px; font-size:12px">There maybe multiple ways to solve the puzzle within minimum steps. You are still a winner if you solved it within minimum moves but steps were different.</p>
+    <div style="clear: left;position: relative; bottom: 1px;">
+        <p style="margin-left: 10px; margin-top: 50px; font-size:14px">There can be multiple ways to solve the puzzle within minimum steps. You are still a winner if you solved it within minimum moves but steps were different.</p>
 
     </div>
+    <div style="position: absolute ; bottom: px; width: 98%; ">
+        <p style="font-size:20px; float: right;padding-right: 25px;">
+            Published By-
+            <br>
+            <br>
+            Robin Kumar
+            <br>
+            Dipesh Bindlish
+            
+        </p>
+    </div>  
     </body>
 </html>
